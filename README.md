@@ -1,1 +1,1 @@
-jsgavno.html - это 3 таск
+jsgavno.html - 3 task
