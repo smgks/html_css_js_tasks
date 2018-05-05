@@ -1,0 +1,13 @@
+  .NotPrintable{
+  	visibility: hidden;
+  	display: none!important;
+  }
+
+  .printable{
+  	vertical-align: top;
+    border-style: none;
+    border: none;
+    width: 100%;
+    height: 100%;
+  }
+

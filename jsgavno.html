@@ -1,0 +1,313 @@
+<!DOCTYPE HTML>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel = "stylesheet" media="print" href="print.css">
+    <link rel = "stylesheet" href = "stylefile.css">
+
+</head>
+
+
+<body background = "Sci-Fi.jpeg" width = "100%">
+
+
+<div  class ="header NotPrintable">
+    <ul id="drop_down_menu">
+        <li class="main"> Menu
+            <ul class="child">
+                <li class = "PaddingType_hover next">Task#1
+                    <ul class="childfree">
+                        <li class = "PaddingType_hover"><a href="code.html">Poem</a></li>
+                        <li class = "PaddingType_hover"><a href="japka.html">About me</a></li>
+                        <li class = "PaddingType_hover"><a href="main.html">Main</a></li>
+                    </ul>
+                </li>
+                <li class = "PaddingType_hover next1">Task#2
+                    <ul class="childfree1">
+                        <li class = "PaddingType_hover"><a href="MathMl.html">MathMl</a></li>
+                        <li class = "PaddingType_hover"><a href="SVGWORK.html">SVG</a></li>
+                    </ul>
+                </li>
+                <li class = "PaddingType_hover next1">Task#3
+                    <ul class="childfree2">
+                        <li class = "PaddingType_hover"><a href="jsgavno.html">task3</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div class = "Main_block">
+    <div class ="left_column NotPrintable">
+        <div class="content_block">
+            <a href = "https://www.qt.io/">
+                <font size="+1">
+                    Qt
+                </font>
+            </a>
+        </div>
+        <div class="content_block">
+            <a href = "http://doc.qt.io/">
+                <font size="+1">
+                    Qt docs
+                </font>
+            </a>
+        </div>
+        <div class="content_block">
+            <a href = "https://kivy.org/#home">
+                <font size="+1">
+                    Kivy home
+                </font>
+            </a>
+        </div>
+        <div class="content_block">
+            <a href = "https://kivy.org/docs">
+                <font size="+1">
+                    Kivy docs
+                </font>
+            </a>
+        </div>
+    </div>
+    <div class ="Middle_column printable">
+
+        <div class = "content_block">
+            <h4>Площадь элипса</h4>
+            <br>
+            <label>R big =</label>
+            <input type="number" id="Rbig" value="8">
+            </input>
+            <label>r little =</label>
+            <input type="number" id="rlittle" value="8">
+            </input>
+            <br>
+            <input type="button" id="solve1" value="solve1">
+            </input>
+            <pre id="outputmatrix1"></pre>
+            <script>
+                solve1.onclick = function(){
+
+                    document.getElementById("outputmatrix1").textContent =
+                        (Math.PI * (+document.getElementById("Rbig").value) * (+document.getElementById("rlittle").value));
+                };
+
+            </script>
+        </div>
+
+        <div class = "content_block">
+            <h4>Сума первых 10 членов ряда фибоначи</h4>
+            <input type="button" id="solve2" value="solve2">
+            </input>
+            <pre id="outputmatrix2"></pre>
+            <script>
+                solve2.onclick = function(){
+                    function fib(n) {
+                        return n <= 1 ? n : +fib(n - 1) + +fib(n - 2);
+                    }
+                    var ansv = 0;
+                    for (var i = 0; i < 10; i++){
+                        ansv = +ansv + +fib(i);
+                    }
+                    document.getElementById("outputmatrix2").textContent = ansv;
+
+                };
+
+            </script>
+        </div>
+        <div class = "content_block">
+            <h4>Отсортировать строки 7*9 </h4>
+            <input type="button" id="solve3" value="solve3">
+            </input>
+            <input type="button" id="solve3random" value="solve3 with random">
+            </input>
+            <br>
+            <pre id="outputmatrix3"></pre>
+
+            <script>
+                solve3.onclick = function(){
+                    function compareNumeric(a, b) {
+                        if (a >= b) return 1;
+                        if (a < b) return -1;
+                    }
+
+                    var mainarray = [];
+                    for (var i = 0; i < 7; i++) {
+                        var array = [];
+                        for (var j = 0; j < 9; j++) {
+                            var temp = +(prompt('f'+i+j));
+
+                            array.push(temp);
+
+                        }
+                        array.sort(compareNumeric);
+                        mainarray.push(array);
+                    }
+                    var output = document.getElementById("outputmatrix3");
+                    output.textContent = "";
+                    for (var i = 0; i < 7; i++) {
+                        for (var j = 0; j < 9; j++) {
+                            output.textContent += mainarray[i][j]+'\t';
+
+                        }
+                        output.textContent +='\n';
+                    }
+                };
+                solve3random.onclick = function(){
+                    function compareNumeric(a, b) {
+                        if (a >= b) return 1;
+                        if (a < b) return -1;
+                    }
+
+                    var mainarray = [];
+                    for (var i = 0; i < 7; i++) {
+                        var array = [];
+                        for (var j = 0; j < 9; j++) {
+                            var temp = Math.floor((Math.random()*100 -50));
+
+                            array.push(temp);
+
+                        }
+                        array.sort(compareNumeric);
+                        mainarray.push(array);
+                    }
+
+                    var output = document.getElementById("outputmatrix3");
+                    output.textContent = "";
+                    for (var i = 0; i < 7; i++) {
+                        for (var j = 0; j < 9; j++) {
+                            output.textContent += mainarray[i][j]+'\t';
+
+                        }
+                        output.textContent +='\n';
+                    }
+                };
+            </script>
+
+        </div>
+        <div class = "content_block">
+            <label>str len =</label>
+            <input type="number" id="solve3Len" value="8">
+            </input>
+            <input type="button" id="solve4" value="solve4">
+            </input>
+            <pre id="outputmatrix4"></pre>
+            <script>
+                solve4.onclick = function() {
+
+                    function compareNumeric(a, b) {
+                        if (a >= b) return 1;
+                        if (a < b) return -1;
+                    }
+                    function compareNumericR(a, b) {
+                        if (a >= b) return -1;
+                        if (a < b) return 1;
+                    }
+                    function getRandomInt(min, max) {
+                        return Math.trunc(Math.random() * (max - min) + min);
+                    }
+                    function getArray(n){
+                        var result = [];
+                        for (var i = 0; i < n; i++) {
+                            result.push(getRandomInt(-100,100));
+                        }
+                        return result;
+                    }
+                    function getResultArray(a) {
+                        a.sort(compareNumeric);
+                        var result = [];
+                        var n = Math.sqrt(a.length);
+                        for (var i = 0; i < n; i++) {
+                            var tempar = [];
+                            if (i%2 == 1){
+                                for (var j = 0; j < n; j++){
+                                    tempar.push(a[i*n+ +j]);
+                                }
+                            }
+                            if (i%2 == 0){
+                                for (var j = 0; j < n; j++){
+                                    tempar.push(a[i*n+ +j]);
+                                }
+                                tempar.sort(compareNumericR);
+                            }
+                            result.push(tempar);
+                        }
+
+                        return result;
+                    }
+
+                    var output = document.getElementById("outputmatrix4");
+
+                    var n = document.getElementById("solve3Len").value;
+                    var ar = getArray(n*n);
+                    var ar = getResultArray(ar);
+                    output.textContent = "";
+
+                    for (var i = 0; i < n; i++) {
+                        for (var j = 0; j < n; j++) {
+                            output.textContent += ar[i][j]+'\t';
+
+                        }
+                        output.textContent +='\n';
+                    }
+                }
+            </script>
+        </div>
+    </div>
+
+    <div class="right_column NotPrintable">
+        <div class="content_block">
+            <img width=100% src="145434166211019887.gif" />
+        </div>
+        <div class="content_block">
+            <img width=100% src="145434166211019887.gif" />
+        </div>
+        <div class="content_block">
+            <img width=100% src="145434166211019887.gif" />
+        </div>
+        <div class="content_block">
+            <img width=100% src="145434166211019887.gif" />
+        </div>
+        <div class="content_block">
+            <img width=100% src="145434166211019887.gif" />
+        </div>
+        <div class="content_block">
+            <img width=100% src="145434166211019887.gif" />
+        </div>
+        <div class="content_block">
+            <img width=100% src="145434166211019887.gif" />
+        </div>
+        <div class="content_block">
+            <img width=100% src="145434166211019887.gif" />
+        </div>
+        <div class="content_block">
+            <img width=100% src="145434166211019887.gif" />
+        </div>
+        <div class="content_block">
+            <img width=100% src="145434166211019887.gif" />
+        </div>
+        <div class="content_block">
+            <img width=100% src="145434166211019887.gif" />
+        </div>
+        <div class="content_block">
+            <img width=100% src="145434166211019887.gif" />
+        </div>
+        <div class="content_block">
+            <img width=100% src="145434166211019887.gif" />
+        </div>
+        <div class="content_block">
+            <img width=100% src="145434166211019887.gif" />
+        </div>
+        <div class="content_block">
+            <img width=100% src="145434166211019887.gif" />
+        </div>
+
+    </div>
+</div>
+</body>
+<footer>
+
+    <font>
+        <div class = "footer NotPrintable">
+            Сделал Андрей Осадчий, группа Б8103а
+        </div>
+    </font>
+</footer>
